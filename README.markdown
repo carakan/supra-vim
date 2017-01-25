@@ -22,24 +22,13 @@ Great care has been taken to ensure that each plugin plays nicely with others, a
 Lastly (and perhaps, most importantly) It is completely cross platform. It works well on Windows, Linux and OSX without any modifications or additional configurations. If you are using [MacVim] or Gvim additional features are enabled. So regardless of your environment just clone and run.
 
 # Installation
-## Requirements
-To make all the plugins work, specifically [neocomplete](https://github.com/Shougo/neocomplete.vim), you need [vim with lua](https://github.com/Shougo/neocomplete.vim#requirements).
 
-## Linux, \*nix, Mac OSX Installation
+Due by migrating to excellent Dein the installer and some of *Magic* plugins can't work fine:
 
-The easiest way to install spf13-vim is to use our [automatic installer](https://j.mp/spf13-vim3) by simply copying and pasting the following line into a terminal. This will install spf13-vim and backup your existing vim configuration. If you are upgrading from a prior version (before 3.0) this is also the recommended installation.
-
-*Requires Git 1.7+ and Vim 7.3+*
-
-```bash
-
-    curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+## install of Dein
 ```
-
-If you have a bash-compatible shell you can run the script directly:
-```bash
-
-    sh <(curl https://j.mp/spf13-vim3 -L)
+mkdir -p ~/.vim/bundle/repos/github.com/Shougo/dein.vim
+git clone https://github.com/Shougo/dein.vim.git ~/.vim/bundle/repos/github.com/Shougo/dein.vim
 ```
 
 ## Installing on Windows

@@ -1,89 +1,16 @@
-" Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
-"
-"                    __ _ _____              _
-"         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
-"        / __| '_ \| |_| | |_ \ _____\ \ / /| | '_ ` _ \
-"        \__ \ |_) |  _| |___) |_____|\ V / | | | | | | |
-"        |___/ .__/|_| |_|____/        \_/  |_|_| |_| |_|
-"            |_|
-"
-"   This is the personal .vimrc.bundles file of Steve Francia.
-"   While much of it is beneficial for general use, I would
-"   recommend picking out the parts you want and understand.
-"
-"   This file imports the various plugins of spf13. If you
-"   wish to alter which groups are imported, see vimrc.before.
-"   If you wish to add or remove individual bundles, create
-"   ~/.vimrc.bundles.local and `Bundle` or `UnBundle` as needed
-"   from there.
-"
-"   You can find me at http://spf13.com
-" }
-
 " Environment {
+if &compatible
+  set nocompatible
+endif
 
-    " Basics {
-        set nocompatible        " Must be first line
-    " }
+set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 
-    " Windows Compatible {
-        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier.
-        if has('win32') || has('win64')
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+if dein#load_state(expand('~/.vim/bundle'))
+    call dein#begin(expand('~/.vim/bundle'))
+    call dein#add('Shougo/dein.vim')
 
-          " Be nice and check for multi_byte even if the config requires
-          " multi_byte support most of the time
-          if has("multi_byte")
-            " Windows cmd.exe still uses cp850. If Windows ever moved to
-            " Powershell as the primary terminal, this would be utf-8
-            set termencoding=cp850
-            " Let Vim use utf-8 internally, because many scripts require this
-            set encoding=utf-8
-            setglobal fileencoding=utf-8
-            " Windows has traditionally used cp1252, so it's probably wise to
-            " fallback into cp1252 instead of eg. iso-8859-15.
-            " Newer Windows files might contain utf-8 or utf-16 LE so we might
-            " want to try them first.
-            set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
-          endif
-        endif
-    " }
 
-    " Setup Bundle Support {
-        " The next three lines ensure that the ~/.vim/bundle/ system works
-        filetype off
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
-    " }
-
-    " Add an UnBundle command {
-    function! UnBundle(arg, ...)
-      let bundle = vundle#config#init_bundle(a:arg, a:000)
-      call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
-    endfunction
-
-    com! -nargs=+         UnBundle
-    \ call UnBundle(<args>)
-    " }
-
-" }
-
-" Bundles {
-
-    " Deps {
-        Bundle 'gmarik/vundle'
-        Bundle 'tomtom/tlib_vim'
-        if executable('ag')
-            Bundle 'mileszs/ack.vim'
-            let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-        elseif executable('ack-grep')
-            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-            Bundle 'mileszs/ack.vim'
-        elseif executable('ack')
-            Bundle 'mileszs/ack.vim'
-        endif
+    call dein#add('tomtom/tlib_vim')
     " }
 
     " In your .vimrc.before.local file
@@ -99,158 +26,145 @@
 
     " General {
         if count(g:spf13_bundle_groups, 'general')
-            Bundle 'scrooloose/nerdtree'
-            Bundle 'tpope/vim-surround'
-            Bundle 'tpope/vim-repeat'
-            Bundle 'rhysd/conflict-marker.vim'
-            Bundle 'jiangmiao/auto-pairs'
-            Bundle 'ctrlpvim/ctrlp.vim'
-            Bundle 'tacahiroy/ctrlp-funky'
-            Bundle 'terryma/vim-multiple-cursors'
-            Bundle 'r901042004/matchit.zip'
-            if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
-                Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-            elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
-                Bundle 'Lokaltog/vim-powerline'
-            else
-                Bundle 'vim-airline/vim-airline'
-                Bundle 'vim-airline/vim-airline-themes'
-            endif
-            Bundle 'powerline/fonts'
-            Bundle 'bling/vim-bufferline'
-            Bundle 'easymotion/vim-easymotion'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'flazz/vim-colorschemes'
-            Bundle 'mbbill/undotree'
-            Bundle 'nathanaelkane/vim-indent-guides'
-            if !exists('g:spf13_no_views')
-                Bundle 'vim-scripts/restore_view.vim'
-            endif
-            Bundle 'mhinz/vim-signify'
-            Bundle 'tpope/vim-abolish.git'
-            Bundle 'osyo-manga/vim-over'
-            Bundle 'kana/vim-textobj-user'
-            Bundle 'kana/vim-textobj-indent'
-            Bundle 'gcmt/wildfire.vim'
-            Bundle 'airblade/vim-rooter'
-            Bundle 'benizi/vim-automkdir'
+            call dein#add('scrooloose/nerdtree')
+            call dein#add('tpope/vim-surround')
+            call dein#add('tpope/vim-repeat')
+            call dein#add('rhysd/conflict-marker.vim')
+            call dein#add('jiangmiao/auto-pairs')
+            call dein#add('ctrlpvim/ctrlp.vim')
+            call dein#add('tacahiroy/ctrlp-funky')
+            call dein#add('terryma/vim-multiple-cursors')
+            call dein#add('r901042004/matchit.zip')
+            call dein#add('vim-airline/vim-airline')
+            call dein#add('vim-airline/vim-airline-themes')
+            call dein#add('bling/vim-bufferline')
+            call dein#add('easymotion/vim-easymotion')
+            call dein#add('jistr/vim-nerdtree-tabs')
+            call dein#add('mbbill/undotree')
+            call dein#add('nathanaelkane/vim-indent-guides')
+            call dein#add('mhinz/vim-signify')
+            call dein#add('tpope/vim-abolish.git')
+            call dein#add('osyo-manga/vim-over')
+            call dein#add('kana/vim-textobj-user')
+            call dein#add('kana/vim-textobj-indent')
+            call dein#add('gcmt/wildfire.vim')
+            call dein#add('airblade/vim-rooter')
+            call dein#add('benizi/vim-automkdir')
         endif
     " }
 
     " Writing {
         if count(g:spf13_bundle_groups, 'writing')
-            Bundle 'reedes/vim-litecorrect'
-            Bundle 'reedes/vim-textobj-sentence'
-            Bundle 'reedes/vim-textobj-quote'
-            Bundle 'reedes/vim-wordy'
+            call dein#add('reedes/vim-litecorrect')
+            call dein#add('reedes/vim-textobj-sentence')
+            call dein#add('reedes/vim-textobj-quote')
+            call dein#add('reedes/vim-wordy')
         endif
     " }
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
-            Bundle 'scrooloose/syntastic'
-            Bundle 'tpope/vim-fugitive'
-            Bundle 'mattn/webapi-vim'
-            Bundle 'mattn/gist-vim'
-            Bundle 'scrooloose/nerdcommenter'
-            Bundle 'tpope/vim-commentary'
-            Bundle 'godlygeek/tabular'
-            Bundle 'luochen1990/rainbow'
+            "call dein#add('scrooloose/syntastic')
+            call dein#add('tpope/vim-fugitive')
+            call dein#add('mattn/webapi-vim')
+            call dein#add('mattn/gist-vim')
+            call dein#add('scrooloose/nerdcommenter')
+            call dein#add('tpope/vim-commentary')
+            call dein#add('godlygeek/tabular')
             if executable('ctags')
-                Bundle 'majutsushi/tagbar'
+                call dein#add('majutsushi/tagbar')
             endif
         endif
     " }
 
     " Snippets & AutoComplete {
-        if count(g:spf13_bundle_groups, 'snipmate')
-            Bundle 'garbas/vim-snipmate'
-            Bundle 'honza/vim-snippets'
-            " Source support_function.vim to support vim-snippets.
-            if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
-                source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
-            endif
-        elseif count(g:spf13_bundle_groups, 'youcompleteme')
-            Bundle 'Valloric/YouCompleteMe'
-            Bundle 'SirVer/ultisnips'
-            Bundle 'honza/vim-snippets'
-        elseif count(g:spf13_bundle_groups, 'neocomplcache')
-            Bundle 'Shougo/neocomplcache'
-            Bundle 'Shougo/neosnippet'
-            Bundle 'Shougo/neosnippet-snippets'
-            Bundle 'honza/vim-snippets'
-        elseif count(g:spf13_bundle_groups, 'neocomplete')
-            Bundle 'Shougo/neocomplete.vim.git'
-            Bundle 'Shougo/neosnippet'
-            Bundle 'Shougo/neosnippet-snippets'
-            Bundle 'honza/vim-snippets'
-        endif
+        "if count(g:spf13_bundle_groups, 'snipmate')
+            "call dein#add('garbas/vim-snipmate')
+            "call dein#add('honza/vim-snippets')
+            "" Source support_function.vim to support vim-snippets.
+            "if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+                "source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+            "endif
+        "elseif count(g:spf13_bundle_groups, 'youcompleteme')
+            "call dein#add('Valloric/YouCompleteMe')
+            "call dein#add('SirVer/ultisnips')
+            "call dein#add('honza/vim-snippets')
+        "elseif count(g:spf13_bundle_groups, 'neocomplcache')
+            "call dein#add('Shougo/neocomplcache')
+            "call dein#add('Shougo/neosnippet')
+            "call dein#add('Shougo/neosnippet-snippets')
+            "call dein#add('honza/vim-snippets')
+        "elseif count(g:spf13_bundle_groups, 'neocomplete')
+            "call dein#add('Shougo/neocomplete.vim.git')
+            "call dein#add('Shougo/neosnippet')
+            "call dein#add('Shougo/neosnippet-snippets')
+            call dein#add('honza/vim-snippets')
+        "endif
     " }
 
     " PHP {
         if count(g:spf13_bundle_groups, 'php')
-            Bundle 'spf13/PIV'
-            Bundle 'arnaud-lb/vim-php-namespace'
-            Bundle 'beyondwords/vim-twig'
+            call dein#add('spf13/PIV')
+            call dein#add('arnaud-lb/vim-php-namespace')
+            call dein#add('beyondwords/vim-twig')
         endif
     " }
 
     " Python {
         if count(g:spf13_bundle_groups, 'python')
             " Pick either python-mode or pyflakes & pydoc
-            Bundle 'klen/python-mode'
-            Bundle 'yssource/python.vim'
-            Bundle 'python_match.vim'
-            Bundle 'pythoncomplete'
+            call dein#add('klen/python-mode')
+            call dein#add('yssource/python.vim')
+            call dein#add('python_match.vim')
+            call dein#add('pythoncomplete')
         endif
     " }
 
     " Javascript {
         if count(g:spf13_bundle_groups, 'javascript')
-            Bundle 'elzr/vim-json'
-            Bundle 'groenewege/vim-less'
-            Bundle 'pangloss/vim-javascript'
-            Bundle 'briancollins/vim-jst'
+            call dein#add('elzr/vim-json')
+            call dein#add('groenewege/vim-less')
+            call dein#add('pangloss/vim-javascript')
+            call dein#add('briancollins/vim-jst')
         endif
     " }
 
     " Scala {
         if count(g:spf13_bundle_groups, 'scala')
-            Bundle 'derekwyatt/vim-scala'
-            Bundle 'derekwyatt/vim-sbt'
-            Bundle 'xptemplate'
+            call dein#add('derekwyatt/vim-scala')
+            call dein#add('derekwyatt/vim-sbt')
+            call dein#add('xptemplate')
         endif
     " }
 
     " Haskell {
         if count(g:spf13_bundle_groups, 'haskell')
-            Bundle 'travitch/hasksyn'
-            Bundle 'dag/vim2hs'
-            Bundle 'Twinside/vim-haskellConceal'
-            Bundle 'Twinside/vim-haskellFold'
-            Bundle 'lukerandall/haskellmode-vim'
-            Bundle 'eagletmt/neco-ghc'
-            Bundle 'eagletmt/ghcmod-vim'
-            Bundle 'Shougo/vimproc.vim'
-            Bundle 'adinapoli/cumino'
-            Bundle 'bitc/vim-hdevtools'
+            call dein#add('travitch/hasksyn')
+            call dein#add('dag/vim2hs')
+            call dein#add('Twinside/vim-haskellConceal')
+            call dein#add('Twinside/vim-haskellFold')
+            call dein#add('lukerandall/haskellmode-vim')
+            call dein#add('eagletmt/neco-ghc')
+            call dein#add('eagletmt/ghcmod-vim')
+            call dein#add('Shougo/vimproc.vim')
+            call dein#add('adinapoli/cumino')
+            call dein#add('bitc/vim-hdevtools')
         endif
     " }
 
     " HTML {
         if count(g:spf13_bundle_groups, 'html')
-            Bundle 'amirh/HTML-AutoCloseTag'
-            Bundle 'hail2u/vim-css3-syntax'
-            Bundle 'gorodinskiy/vim-coloresque'
-            Bundle 'tpope/vim-haml'
-            Bundle 'mattn/emmet-vim'
+            call dein#add('hail2u/vim-css3-syntax')
+            call dein#add('gorodinskiy/vim-coloresque')
+            call dein#add('tpope/vim-haml')
+            call dein#add('mattn/emmet-vim')
         endif
     " }
 
     " Ruby {
         if count(g:spf13_bundle_groups, 'ruby')
-            Bundle 'tpope/vim-rails'
+            call dein#add('tpope/vim-rails')
             let g:rubycomplete_buffer_loading = 1
             "let g:rubycomplete_classes_in_global = 1
             "let g:rubycomplete_rails = 1
@@ -259,42 +173,49 @@
 
     " Puppet {
         if count(g:spf13_bundle_groups, 'puppet')
-            Bundle 'rodjek/vim-puppet'
+            call dein#add('rodjek/vim-puppet')
         endif
     " }
 
     " Go Lang {
         if count(g:spf13_bundle_groups, 'go')
-            "Bundle 'Blackrush/vim-gocode'
-            Bundle 'fatih/vim-go'
+            "call dein#add('Blackrush/vim-gocode'
+            call dein#add('fatih/vim-go')
         endif
     " }
 
     " Elixir {
         if count(g:spf13_bundle_groups, 'elixir')
-            Bundle 'elixir-lang/vim-elixir'
+            call dein#add('elixir-lang/vim-elixir')
         endif
     " }
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
-            Bundle 'tpope/vim-markdown'
-            Bundle 'tpope/vim-cucumber'
+            call dein#add('tpope/vim-markdown')
+            call dein#add('tpope/vim-cucumber')
         endif
     " }
 
     endif
 
-" }
 
-" Use fork bundles config if available {
-    if filereadable(expand("~/.vimrc.bundles.fork"))
-        source ~/.vimrc.bundles.fork
-    endif
-" }
+    " Use fork bundles config if available {
+        if filereadable(expand("~/.vimrc.bundles.fork"))
+            source ~/.vimrc.bundles.fork
+        endif
+    " }
 
-" Use local bundles config if available {
-    if filereadable(expand("~/.vimrc.bundles.local"))
-        source ~/.vimrc.bundles.local
-    endif
-" }
+    " Use local bundles config if available {
+        if filereadable(expand("~/.vimrc.bundles.local"))
+            source ~/.vimrc.bundles.local
+        endif
+    " }
+
+
+    call dein#end()
+    call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
