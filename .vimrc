@@ -57,7 +57,7 @@
           set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
         endif
     " }
-    
+
     " Arrow Key Fix {
         " https://github.com/spf13/spf13-vim/issues/780
         if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
@@ -110,15 +110,6 @@
         else         " On mac and Windows, use * register for copy-paste
             set clipboard=unnamed
         endif
-    endif
-
-    " Most prefer to automatically switch to the current file directory when
-    " a new buffer is opened; to prevent this behavior, add the following to
-    " your .vimrc.before.local file:
-    "   let g:spf13_no_autochdir = 1
-    if !exists('g:spf13_no_autochdir')
-        autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-        " Always switch to the current file directory
     endif
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
@@ -607,15 +598,6 @@
             vmap <Leader>a,, :Tabularize /,\zs<CR>
             nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
             vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-        endif
-    " }
-
-    " Session List {
-        set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-        if isdirectory(expand("~/.vim/bundle/sessionman.vim/"))
-            nmap <leader>sl :SessionList<CR>
-            nmap <leader>ss :SessionSave<CR>
-            nmap <leader>sc :SessionClose<CR>
         endif
     " }
 
@@ -1197,23 +1179,23 @@
         endfor
         return s:is_fork
     endfunction
-     
+
     function! s:ExpandFilenameAndExecute(command, file)
         execute a:command . " " . expand(a:file, ":p")
     endfunction
-     
+
     function! s:EditSpf13Config()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.vimrc")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.before")
         call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.bundles")
-     
+
         execute bufwinnr(".vimrc") . "wincmd w"
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.before.local")
         wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.local")
-     
+
         if <SID>IsSpf13Fork()
             execute bufwinnr(".vimrc") . "wincmd w"
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.fork")
@@ -1222,10 +1204,10 @@
             wincmd l
             call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.fork")
         endif
-     
+
         execute bufwinnr(".vimrc.local") . "wincmd w"
     endfunction
-     
+
     execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
     execute "noremap " . s:spf13_apply_config_mapping . " :source ~/.vimrc<CR>"
 " }
