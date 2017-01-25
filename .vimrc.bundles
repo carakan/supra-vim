@@ -73,7 +73,7 @@
 " Bundles {
 
     " Deps {
-        Bundle 'VundleVim/Vundle.vim'
+        Bundle 'gmarik/vundle'
         Bundle 'tomtom/tlib_vim'
         if executable('ag')
             Bundle 'mileszs/ack.vim'
