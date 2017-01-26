@@ -31,8 +31,26 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('tpope/vim-repeat')
             call dein#add('rhysd/conflict-marker.vim')
             call dein#add('jiangmiao/auto-pairs')
+
             call dein#add('ctrlpvim/ctrlp.vim')
             call dein#add('tacahiroy/ctrlp-funky')
+
+            call dein#add('voronkovich/ctrlp-nerdtree.vim', { 'on_cmd' : 'CtrlPNerdTree'})
+            call dein#add('h14i/vim-ctrlp-buftab',          { 'on_cmd' : 'CtrlPBufTab'})
+            call dein#add('vim-scripts/ctrlp-cmdpalette',   { 'on_cmd' : 'CtrlPCmdPalette'})
+            call dein#add('mattn/ctrlp-windowselector',     { 'on_cmd' : 'CtrlPWindowSelector'})
+            call dein#add('the9ball/ctrlp-gtags',           { 'on_cmd' : ['CtrlPGtagsX','CtrlPGtagsF','CtrlPGtagsR']})
+            call dein#add('thiderman/ctrlp-project',        { 'on_cmd' : 'CtrlPProject'})
+            call dein#add('mattn/ctrlp-google',             { 'on_cmd' : 'CtrlPGoogle'})
+            call dein#add('ompugao/ctrlp-history',          { 'on_cmd' : ['CtrlPCmdHistory','CtrlPSearchHistory']})
+            call dein#add('pielgrzym/ctrlp-sessions',       { 'on_cmd' : ['CtrlPSessions','MkS']})
+            call dein#add('tacahiroy/ctrlp-funky',          { 'on_cmd' : 'CtrlPFunky'})
+            call dein#add('mattn/ctrlp-launcher',           { 'on_cmd' : 'CtrlPLauncher'})
+            call dein#add('sgur/ctrlp-extensions.vim',      { 'on_cmd' : ['CtrlPCmdline','CtrlPMenu','CtrlPYankring']})
+            call dein#add('lambdalisue/vim-gista-ctrlp',    { 'on_cmd' : 'CtrlPGista'})
+            call dein#add('elentok/ctrlp-objects.vim',      { 'on_cmd' : ['CtrlPModels','CtrlPViews','CtrlPControllers','CtrlPTemplates','CtrlPPresenters']})
+
+
             call dein#add('terryma/vim-multiple-cursors')
             call dein#add('r901042004/matchit.zip')
             call dein#add('vim-airline/vim-airline')
@@ -66,7 +84,7 @@ if dein#load_state(expand('~/.vim/bundle'))
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             "call dein#add('scrooloose/syntastic')
-            call dein#add('tpope/vim-fugitive')
+            call dein#add('tpope/vim-fugitive', { 'on_cmd': [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 'Gblame', 'Ggrep', 'Gdiff', ] })
             call dein#add('mattn/webapi-vim')
             call dein#add('mattn/gist-vim')
             call dein#add('scrooloose/nerdcommenter')
@@ -123,9 +141,9 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " Javascript {
         if count(g:spf13_bundle_groups, 'javascript')
-            call dein#add('elzr/vim-json')
-            call dein#add('groenewege/vim-less')
-            call dein#add('pangloss/vim-javascript')
+            call dein#add('elzr/vim-json', {'on_ft': ['json', 'javascript']})
+            call dein#add('groenewege/vim-less', {'on_ft': 'less'})
+            call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
             call dein#add('briancollins/vim-jst')
         endif
     " }
@@ -155,10 +173,10 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " HTML {
         if count(g:spf13_bundle_groups, 'html')
-            call dein#add('hail2u/vim-css3-syntax')
-            call dein#add('gorodinskiy/vim-coloresque')
-            call dein#add('tpope/vim-haml')
-            call dein#add('mattn/emmet-vim')
+            call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
+            call dein#add('gorodinskiy/vim-coloresque', {'on_ft':['css','scss', 'html']})
+            call dein#add('tpope/vim-haml', {'on_ft':['haml']})
+            call dein#add('mattn/emmet-vim', {'on_ft':['css','scss', 'html']})
         endif
     " }
 
@@ -186,14 +204,13 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " Elixir {
         if count(g:spf13_bundle_groups, 'elixir')
-            call dein#add('elixir-lang/vim-elixir')
+            call dein#add('elixir-lang/vim-elixir', {'on_ft': 'elixir'})
         endif
     " }
 
     " Misc {
         if count(g:spf13_bundle_groups, 'misc')
-            call dein#add('tpope/vim-markdown')
-            call dein#add('tpope/vim-cucumber')
+            call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
         endif
     " }
 
