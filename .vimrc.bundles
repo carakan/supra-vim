@@ -9,9 +9,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     call dein#begin(expand('~/.vim/bundle'))
     call dein#add('Shougo/dein.vim')
 
-
     call dein#add('tomtom/tlib_vim')
-    " }
 
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
@@ -23,7 +21,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     " .vimrc.bundles.local file:
     "   let g:override_spf13_bundles = 1
     if !exists("g:override_spf13_bundles")
-
     " General {
         if count(g:spf13_bundle_groups, 'general')
             call dein#add('scrooloose/nerdtree')
@@ -49,7 +46,6 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('sgur/ctrlp-extensions.vim',      { 'on_cmd' : ['CtrlPCmdline','CtrlPMenu','CtrlPYankring']})
             call dein#add('lambdalisue/vim-gista-ctrlp',    { 'on_cmd' : 'CtrlPGista'})
             call dein#add('elentok/ctrlp-objects.vim',      { 'on_cmd' : ['CtrlPModels','CtrlPViews','CtrlPControllers','CtrlPTemplates','CtrlPPresenters']})
-
 
             call dein#add('terryma/vim-multiple-cursors')
             call dein#add('r901042004/matchit.zip')
@@ -84,7 +80,7 @@ if dein#load_state(expand('~/.vim/bundle'))
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             "call dein#add('scrooloose/syntastic')
-            call dein#add('tpope/vim-fugitive', { 'on_cmd': [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 'Gblame', 'Ggrep', 'Gdiff', ] })
+            call dein#add('tpope/vim-fugitive', { 'on_cmd': [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 'Gblame', 'Ggrep', 'Gdiff'] })
             call dein#add('mattn/webapi-vim')
             call dein#add('mattn/gist-vim')
             call dein#add('scrooloose/nerdcommenter')
@@ -131,7 +127,6 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " Python {
         if count(g:spf13_bundle_groups, 'python')
-            " Pick either python-mode or pyflakes & pydoc
             call dein#add('klen/python-mode')
             call dein#add('yssource/python.vim')
             call dein#add('python_match.vim')
@@ -175,7 +170,7 @@ if dein#load_state(expand('~/.vim/bundle'))
         if count(g:spf13_bundle_groups, 'html')
             call dein#add('hail2u/vim-css3-syntax', {'on_ft':['css','scss']})
             call dein#add('gorodinskiy/vim-coloresque', {'on_ft':['css','scss', 'html']})
-            call dein#add('tpope/vim-haml', {'on_ft':['haml']})
+            call dein#add('tpope/vim-haml', {'on_ft': 'haml'})
             call dein#add('mattn/emmet-vim', {'on_ft':['css','scss', 'html']})
         endif
     " }
