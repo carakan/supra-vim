@@ -93,28 +93,9 @@ if dein#load_state(expand('~/.vim/bundle'))
     " }
 
     " Snippets & AutoComplete {
-        "if count(g:spf13_bundle_groups, 'snipmate')
-            "call dein#add('garbas/vim-snipmate')
-            "call dein#add('honza/vim-snippets')
-            "" Source support_function.vim to support vim-snippets.
-            "if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
-                "source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
-            "endif
-        "elseif count(g:spf13_bundle_groups, 'youcompleteme')
-            "call dein#add('Valloric/YouCompleteMe')
-            "call dein#add('SirVer/ultisnips')
-            "call dein#add('honza/vim-snippets')
-        "elseif count(g:spf13_bundle_groups, 'neocomplcache')
-            "call dein#add('Shougo/neocomplcache')
-            "call dein#add('Shougo/neosnippet')
-            "call dein#add('Shougo/neosnippet-snippets')
-            "call dein#add('honza/vim-snippets')
-        "elseif count(g:spf13_bundle_groups, 'neocomplete')
-            "call dein#add('Shougo/neocomplete.vim.git')
-            "call dein#add('Shougo/neosnippet')
-            "call dein#add('Shougo/neosnippet-snippets')
-            call dein#add('honza/vim-snippets')
-        "endif
+        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('SirVer/ultisnips')
+        call dein#add('honza/vim-snippets')
     " }
 
     " PHP {
