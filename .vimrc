@@ -167,15 +167,6 @@
 " }
 
 " Vim UI {
-
-    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/repos/github.com/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
-    endif
-
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
 
@@ -502,10 +493,10 @@
     " }
 
     " Misc {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/nerdtree"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/scrooloose/nerdtree"))
             let g:NERDShutUp=1
         endif
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/matchit.zip"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/r901042004/matchit.zip"))
             let b:match_ignorecase = 1
         endif
     " }
@@ -564,7 +555,7 @@
     " }
 
     " NerdTree {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/nerdtree"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/scrooloose/nerdtree/"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
             map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
@@ -581,7 +572,7 @@
     " }
 
     " Tabularize {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/tabular"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/godlygeek/tabular"))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
             nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
@@ -607,11 +598,7 @@
     " }
 
     " PyMode {
-        " Disable if python support not present
-        if !has('python') && !has('python3')
-            let g:pymode = 0
-        endif
-
+        " Disable if python support not present     
         if isdirectory(expand("~/.vim/bundle/repos/github.com/python-mode"))
             let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0
@@ -621,7 +608,7 @@
     " }
 
     " ctrlp {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/ctrlp.vim/"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/ctrlpvim/ctrlp.vim/"))
             let g:ctrlp_working_path_mode = 'ra'
             nnoremap <silent> <D-t> :CtrlP<CR>
             nnoremap <silent> <D-r> :CtrlPMRU<CR>
@@ -652,7 +639,7 @@
                 \ 'fallback': s:ctrlp_fallback
             \ }
 
-            if isdirectory(expand("~/.vim/bundle/repos/github.com/ctrlp-funky/"))
+            if isdirectory(expand("~/.vim/bundle/repos/github.com/tacahiroy/ctrlp-funky/"))
                 " CtrlP extensions
                 let g:ctrlp_extensions = ['funky']
 
@@ -663,7 +650,7 @@
     "}
 
     " TagBar {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/tagbar/"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/majutsushi/tagbar/"))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
         endif
     "}
@@ -675,7 +662,7 @@
     "}
 
     " Fugitive {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/vim-fugitive/"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/tpope/vim-fugitive/"))
             nnoremap <silent> <leader>gs :Gstatus<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
             nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -692,7 +679,7 @@
     "}
 
     " UndoTree {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/undotree/"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/mbbill/undotree/"))
             nnoremap <Leader>u :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
@@ -700,7 +687,7 @@
     " }
 
     " indent_guides {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/vim-indent-guides/"))
+        if isdirectory(expand("~/.vim/bundle/repos/github.com/nathanaelkane/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
             let g:indent_guides_enable_on_vim_startup = 1
