@@ -78,17 +78,12 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
-            " Pick one of the checksyntax, jslint, or syntastic
-            "call dein#add('scrooloose/syntastic')
             call dein#add('tpope/vim-fugitive', { 'on_cmd': [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 'Gblame', 'Ggrep', 'Gdiff'] })
             call dein#add('mattn/webapi-vim')
             call dein#add('mattn/gist-vim')
             call dein#add('scrooloose/nerdcommenter')
             call dein#add('tpope/vim-commentary')
             call dein#add('godlygeek/tabular')
-            if executable('ctags')
-                call dein#add('majutsushi/tagbar')
-            endif
         endif
     " }
 
@@ -119,11 +114,11 @@ if dein#load_state(expand('~/.vim/bundle'))
         if count(g:spf13_bundle_groups, 'javascript')
             call dein#add('elzr/vim-json', {'on_ft': ['json', 'javascript']})
             call dein#add('groenewege/vim-less', {'on_ft': 'less'})
-            call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
             call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
             call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
             call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
             call dein#add('leafgarland/typescript-vim', {'on_ft': 'typescript'})
+            call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
         endif
     " }
 
@@ -168,31 +163,7 @@ if dein#load_state(expand('~/.vim/bundle'))
         endif
     " }
 
-    " Puppet {
-        if count(g:spf13_bundle_groups, 'puppet')
-            call dein#add('rodjek/vim-puppet')
-        endif
-    " }
-
-    " Go Lang {
-        if count(g:spf13_bundle_groups, 'go')
-            "call dein#add('Blackrush/vim-gocode'
-            call dein#add('fatih/vim-go')
-        endif
-    " }
-
-    " Elixir {
-        if count(g:spf13_bundle_groups, 'elixir')
-            call dein#add('elixir-lang/vim-elixir', {'on_ft': 'elixir'})
-        endif
-    " }
-
-    " Misc {
-        if count(g:spf13_bundle_groups, 'misc')
-            call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
-        endif
-    " }
-
+  
     endif
 
 
