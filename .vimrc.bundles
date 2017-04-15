@@ -111,18 +111,10 @@ if dein#load_state(expand('~/.vim/bundle'))
         endif
     " }
 
-    " Haskell {
-        if count(g:spf13_bundle_groups, 'haskell')
-            call dein#add('travitch/hasksyn')
-            call dein#add('dag/vim2hs')
-            call dein#add('Twinside/vim-haskellConceal')
-            call dein#add('Twinside/vim-haskellFold')
-            call dein#add('lukerandall/haskellmode-vim')
-            call dein#add('eagletmt/neco-ghc')
-            call dein#add('eagletmt/ghcmod-vim')
-            call dein#add('Shougo/vimproc.vim')
-            call dein#add('adinapoli/cumino')
-            call dein#add('bitc/vim-hdevtools')
+    " Elixir {
+        if count(g:spf13_bundle_groups, 'elixir')
+            call dein#add('elixir-lang/vim-elixir', {'on_ft': 'elixir'})
+            call dein#add('slashmili/alchemist.vim', {'on_ft': 'elixir'})
         endif
     " }
 
@@ -143,10 +135,7 @@ if dein#load_state(expand('~/.vim/bundle'))
             "let g:rubycomplete_rails = 1
         endif
     " }
-
-  
     endif
-
 
     " Use fork bundles config if available {
         if filereadable(expand("~/.vimrc.bundles.fork"))
@@ -159,7 +148,6 @@ if dein#load_state(expand('~/.vim/bundle'))
             source ~/.vimrc.bundles.local
         endif
     " }
-
 
     call dein#end()
     call dein#save_state()
