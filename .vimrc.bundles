@@ -65,6 +65,9 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('scrooloose/nerdcommenter')
             call dein#add('tpope/vim-commentary')
             call dein#add('godlygeek/tabular')
+            call dein#add('tpope/vim-endwise')
+            call dein#add('christoomey/vim-tmux-navigator')
+            call dein#add('google/vim-searchindex')
         endif
     " }
 
@@ -97,8 +100,9 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('groenewege/vim-less', {'on_ft': 'less'})
             call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
             call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript'})
+            call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': 'typescript'})
             call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
-            call dein#add('leafgarland/typescript-vim', {'on_ft': 'typescript'})
+            call dein#add('Quramy/tsuquyomi', {'on_ft': 'typescript'})
             call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
         endif
     " }
