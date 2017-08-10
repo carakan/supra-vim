@@ -117,7 +117,7 @@ if dein#load_state(expand('~/.vim/bundle'))
 
     " Elixir {
         if count(g:spf13_bundle_groups, 'elixir')
-            call dein#add('elixir-lang/vim-elixir', {'on_ft': 'elixir'})
+            call dein#add('elixir-editors/vim-elixir', {'on_ft': 'elixir'})
             call dein#add('slashmili/alchemist.vim', {'on_ft': 'elixir'})
         endif
     " }
