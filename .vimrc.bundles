@@ -158,4 +158,4 @@ if dein#load_state(expand('~/.vim/bundle'))
 endif
 
 filetype plugin indent on
-syntax enable
+syntax on

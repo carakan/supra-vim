@@ -1,11 +1,9 @@
 
-spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim].
+(NEW) spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and [MacVim].
 
 It is a good starting point for anyone intending to use VIM for development running equally well on Windows, Linux, \*nix and Mac.
 
 The distribution is completely customisable using a `~/.vimrc.local`, `~/.vimrc.bundles.local`, and `~/.vimrc.before.local` Vim RC files.
-
-![spf13-vim image][spf13-vim-img]
 
 Unlike traditional VIM plugin structure, which similar to UNIX throws all files into common directories, making updating or disabling plugins a real mess, spf13-vim 3 uses the [Vundle] plugin management system to have a well organized vim directory (Similar to mac's app folders). Vundle also ensures that the latest versions of your plugins are installed and makes it easy to keep them up to date.
 
@@ -35,7 +33,7 @@ I'm always happy to take pull requests from others. A good number of people are 
 
 ## Customization
 
-Create `~/.vimrc.local` and `~/.gvimrc.local` for any local
+Create `~/.vimrc.local` for any local
 customizations.
 
 For example, to override the default color schemes:
@@ -386,7 +384,3 @@ Here's some tips if you've never used VIM before:
   Spf13-vim uses `let mapleader = ","` to change this to `,` which is in a consistent and
   convenient location.
 * Keyboard [cheat sheet](http://www.viemu.com/vi-vim-cheat-sheet.gif).
-
-[![Analytics](https://ga-beacon.appspot.com/UA-7131036-5/spf13-vim/readme)](https://github.com/igrigorik/ga-beacon)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/spf13/spf13-vim/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

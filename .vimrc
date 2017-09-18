@@ -31,31 +31,8 @@
 
 " Environment {
 
-    " Identify platform {
-        silent function! OSX()
-            return has('macunix')
-        endfunction
-        silent function! LINUX()
-            return has('unix') && !has('macunix') && !has('win32unix')
-        endfunction
-        silent function! WINDOWS()
-            return  (has('win32') || has('win64'))
-        endfunction
-    " }
-
     " Basics {
         set nocompatible        " Must be first line
-        if !WINDOWS()
-            set shell=/bin/sh
-        endif
-    " }
-
-    " Windows Compatible {
-        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
-        " across (heterogeneous) systems easier.
-        if WINDOWS()
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
     " }
 
     " Arrow Key Fix {
@@ -98,8 +75,8 @@
     " if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     " endif
-    filetype plugin indent on   " Automatically detect file types.
-    syntax on                   " Syntax highlighting
+    " filetype plugin indent on   " Automatically detect file types.
+    " syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
@@ -235,7 +212,7 @@
     " To disable the stripping of whitespace, add the following to your
     " .vimrc.before.local file:
     "   let g:spf13_keep_trailing_whitespace = 1
-    autocmd FileType html,html.handlebars,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,elixir,ruby,vim autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+    autocmd FileType html,html.handlebars,eruby.yaml,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,elixir,ruby,vim autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
