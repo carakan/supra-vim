@@ -105,12 +105,12 @@ if dein#load_state(expand('~/.vim/bundle'))
                 \ 'jsx',
                 \ 'javascript.jsx',
                 \ 'vue',
-                \ 'hbs'
+                \ 'javascript',
+                \ 'html.handlebars'
                 \ ]
             call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': 'typescript'})
             call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
             call dein#add('Quramy/tsuquyomi', {'on_ft': 'typescript'})
-            
         endif
     " }
 
@@ -135,7 +135,7 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('gorodinskiy/vim-coloresque', {'on_ft':['css','scss', 'html']})
             call dein#add('tpope/vim-haml', {'on_ft': 'haml'})
             call dein#add('mattn/emmet-vim', {'on_ft':['css','scss', 'html']})
-            call dein#add('fszymanski/deoplete-emoji')
+            call dein#add('carakan/deoplete-emoji')
         endif
     " }
 
