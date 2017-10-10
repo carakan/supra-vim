@@ -110,6 +110,8 @@ if dein#load_state(expand('~/.vim/bundle'))
                 \ ]
             call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': 'typescript'})
             call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
+            " this is a requeriment of tsuquyomi
+            call dein#add('Shougo/vimproc.vim', {'on_ft': 'typescript'})
             call dein#add('Quramy/tsuquyomi', {'on_ft': 'typescript'})
         endif
     " }
