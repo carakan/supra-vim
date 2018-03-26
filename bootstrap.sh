@@ -123,7 +123,7 @@ create_symlinks() {
 }
 
 setup_fork_mode() {
-
+    debug
 }
 
 setup_vundle() {
