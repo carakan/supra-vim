@@ -140,7 +140,7 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('gorodinskiy/vim-coloresque', {'on_ft':['css','scss', 'html']})
             call dein#add('tpope/vim-haml', {'on_ft': 'haml'})
             call dein#add('mattn/emmet-vim', {'on_ft':['css','scss', 'html']})
-            call dein#add('carakan/deoplete-emoji')
+            " call dein#add('carakan/deoplete-emoji')
         endif
     " }
 
@@ -149,8 +149,8 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('vim-ruby/vim-ruby')
             call dein#add('tpope/vim-rails')
             let g:rubycomplete_buffer_loading = 1
-            "let g:rubycomplete_classes_in_global = 1
-            "let g:rubycomplete_rails = 1
+            let g:rubycomplete_classes_in_global = 1
+            let g:rubycomplete_rails = 1
         endif
     " }
     endif

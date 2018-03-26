@@ -5,7 +5,7 @@ app_name='supra-vim'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
 fork_maintainer='0'
-[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
+[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/Shougo/dein.vim"
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -133,8 +133,7 @@ setup_vundle() {
     vim \
         -u "$1" \
         "+set nomore" \
-        "+BundleInstall!" \
-        "+BundleClean" \
+        "+call dein#install()" \
         "+qall"
 
     export SHELL="$system_shell"
@@ -164,7 +163,7 @@ setup_fork_mode "$fork_maintainer" \
                 "$APP_PATH" \
                 "$HOME"
 
-sync_repo       "$HOME/.vim/bundle/vundle" \
+sync_repo       "$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim" \
                 "$VUNDLE_URI" \
                 "master" \
                 "vundle"
@@ -172,4 +171,4 @@ sync_repo       "$HOME/.vim/bundle/vundle" \
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
 msg             "\nThanks for installing $app_name."
-msg             "© `date +%Y` http://vim.spf13.com/"
+
