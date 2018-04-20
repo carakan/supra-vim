@@ -1,7 +1,4 @@
 " Environment {
-if &compatible
-  set nocompatible
-endif
 
 set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 
