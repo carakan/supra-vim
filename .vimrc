@@ -23,11 +23,6 @@
 
     set background=dark         " Assume a dark background
 
-    " if !has('gui')
-        "set term=$TERM          " Make arrow and other keys work
-    " endif
-    " filetype plugin indent on   " Automatically detect file types.
-    " syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
@@ -98,9 +93,7 @@
 " Vim UI {
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
-
     set cursorline                  " Highlight current line
-
     highlight clear SignColumn      " SignColumn should match background
     highlight clear LineNr          " Current line number row will have same background color in relative mode
     "highlight clear CursorLineNr    " Remove highlight color from current line number

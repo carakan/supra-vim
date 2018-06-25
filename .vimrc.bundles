@@ -98,16 +98,6 @@ if dein#load_state(expand('~/.vim/bundle'))
         if count(g:spf13_bundle_groups, 'javascript')
             call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
             call dein#add('elzr/vim-json', {'on_ft': ['json', 'javascript']})
-            call dein#add('carlitux/deoplete-ternjs', {'on_ft': 'javascript', 'build': 'npm install -g tern'})
-            let g:deoplete#sources#ternjs#types = 1
-            let g:deoplete#sources#ternjs#docs = 1
-            let g:deoplete#sources#ternjs#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue',
-                \ 'javascript',
-                \ 'html.handlebars'
-                \ ]
             call dein#add('HerringtonDarkholme/yats.vim', {'on_ft': 'typescript'})
             call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript', 'build': './install'})
             " this is a requeriment of tsuquyomi
