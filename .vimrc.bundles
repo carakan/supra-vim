@@ -126,7 +126,6 @@ if dein#load_state(expand('~/.vim/bundle'))
             call dein#add('gorodinskiy/vim-coloresque', {'on_ft':['css','scss', 'html']})
             call dein#add('tpope/vim-haml', {'on_ft': 'haml'})
             call dein#add('mattn/emmet-vim', {'on_ft':['css','scss', 'html']})
-            " call dein#add('carakan/deoplete-emoji')
         endif
     " }
 
