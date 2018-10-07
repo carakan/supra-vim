@@ -8,13 +8,13 @@
 " }
 
 " Use before config if available {
-    if filereadable(expand("~/.vimrc.before"))
+    if filereadable(expand('~/.vimrc.before'))
         source ~/.vimrc.before
     endif
 " }
 
 " Use bundles config {
-    if filereadable(expand("~/.vimrc.bundles"))
+    if filereadable(expand('~/.vimrc.bundles'))
         source ~/.vimrc.bundles
     endif
 " }
@@ -212,14 +212,14 @@
     if !exists('g:spf13_no_wrapRelMotion')
         " Same for 0, home, end, etc
         function! WrapRelativeMotion(key, ...)
-            let vis_sel=""
+            let l:vis_sel = ''
             if a:0
-                let vis_sel="gv"
+                let l:vis_sel = 'gv'
             endif
             if &wrap
-                execute "normal!" vis_sel . "g" . a:key
+                execute 'normal!' l:vis_sel . 'g' . a:key
             else
-                execute "normal!" vis_sel . a:key
+                execute 'normal!' l:vis_sel . a:key
             endif
         endfunction
 
@@ -254,7 +254,7 @@
 
     " Stupid shift key fixes
     if !exists('g:spf13_no_keyfixes')
-        if has("user_commands")
+        if has('user_commands')
             command! -bang -nargs=* -complete=file E e<bang> <args>
             command! -bang -nargs=* -complete=file W w<bang> <args>
             command! -bang -nargs=* -complete=file Wq wq<bang> <args>
@@ -351,7 +351,7 @@
             let g:go_highlight_structs = 1
             let g:go_highlight_operators = 1
             let g:go_highlight_build_constraints = 1
-            let g:go_fmt_command = "goimports"
+            let g:go_fmt_command = 'goimports'
             let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
             let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
             au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -390,17 +390,17 @@
     " }
 
     " PIV {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/PIV"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/PIV'))
             let g:DisableAutoPHPFolding = 0
             let g:PIVAutoClose = 0
         endif
     " }
 
     " Misc {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/scrooloose/nerdtree"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/scrooloose/nerdtree'))
             let g:NERDShutUp=1
         endif
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/r901042004/matchit.zip"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/r901042004/matchit.zip'))
             let b:match_ignorecase = 1
         endif
     " }
@@ -409,7 +409,7 @@
         " To disable omni complete, add the following to your .vimrc.before.local file:
         "   let g:spf13_no_omni_complete = 1
         if !exists('g:spf13_no_omni_complete')
-            if has("autocmd") && exists("+omnifunc")
+            if has('autocmd') && exists('+omnifunc')
                 autocmd Filetype *
                     \if &omnifunc == "" |
                     \setlocal omnifunc=syntaxcomplete#Complete |
@@ -459,7 +459,7 @@
     " }
 
     " NerdTree {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/scrooloose/nerdtree/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/scrooloose/nerdtree/'))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
             map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
@@ -476,7 +476,7 @@
     " }
 
     " Tabularize {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/godlygeek/tabular"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/godlygeek/tabular'))
             nmap <Leader>a& :Tabularize /&<CR>
             vmap <Leader>a& :Tabularize /&<CR>
             nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
@@ -503,7 +503,7 @@
 
     " PyMode {
         " Disable if python support not present     
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/python-mode"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/python-mode'))
             let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0
             let g:pymode_options = 0
@@ -512,19 +512,19 @@
     " }
 
     " TagBar {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/majutsushi/tagbar/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/majutsushi/tagbar/'))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
         endif
     "}
 
     " Rainbow {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/rainbow/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/rainbow/'))
             let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
         endif
     "}
 
     " Fugitive {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/tpope/vim-fugitive/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/tpope/vim-fugitive/'))
             nnoremap <silent> <leader>gs :Gstatus<CR>
             nnoremap <silent> <leader>gd :Gdiff<CR>
             nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -541,7 +541,7 @@
     "}
 
     " UndoTree {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/mbbill/undotree/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/mbbill/undotree/'))
             nnoremap <Leader>u :UndotreeToggle<CR>
             " If undotree is opened, it is likely one wants to interact with it.
             let g:undotree_SetFocusWhenToggle=1
@@ -549,7 +549,7 @@
     " }
 
     " indent_guides {
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/nathanaelkane/vim-indent-guides/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/nathanaelkane/vim-indent-guides/'))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
             let g:indent_guides_enable_on_vim_startup = 1
@@ -558,8 +558,8 @@
 
     " Wildfire {
     let g:wildfire_objects = {
-                \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
-                \ "html,xml" : ["at"],
+                \ '*' : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                \ 'html,xml' : ['at'],
                 \ }
     " }
 
@@ -574,7 +574,7 @@
 
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
-        if isdirectory(expand("~/.vim/bundle/repos/github.com/vim-airline-themes/"))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/vim-airline-themes/'))
             if !exists('g:airline_theme')
                 let g:airline_theme = 'solarized'
             endif
@@ -594,12 +594,12 @@
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
         set lines=40                " 40 lines of text instead of 24
-        if !exists("g:spf13_no_big_font")
-            if LINUX() && has("gui_running")
+        if !exists('g:spf13_no_big_font')
+            if LINUX() && has('gui_running')
                 set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
-            elseif OSX() && has("gui_running")
+            elseif OSX() && has('gui_running')
                 set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
-            elseif WINDOWS() && has("gui_running")
+            elseif WINDOWS() && has('gui_running')
                 set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
             endif
         endif
@@ -640,17 +640,17 @@
 
         for [dirname, settingname] in items(dir_list)
             let directory = common_dir . dirname . '/'
-            if exists("*mkdir")
+            if exists('*mkdir')
                 if !isdirectory(directory)
                     call mkdir(directory)
                 endif
             endif
             if !isdirectory(directory)
-                echo "Warning: Unable to create backup directory: " . directory
-                echo "Try: mkdir -p " . directory
+                echo 'Warning: Unable to create backup directory: ' . directory
+                echo 'Try: mkdir -p ' . directory
             else
                 let directory = substitute(directory, " ", "\\\\ ", "g")
-                exec "set " . settingname . "=" . directory
+                exec 'set ' . settingname . '=' . directory
             endif
         endfor
     endfunction
@@ -662,7 +662,7 @@
         redir => bufoutput
         buffers!
         redir END
-        let idx = stridx(bufoutput, "NERD_tree")
+        let idx = stridx(bufoutput, 'NERD_tree')
         if idx > -1
             NERDTreeMirror
             NERDTreeFind
@@ -696,9 +696,9 @@
 
     function! s:IsSpf13Fork()
         let s:is_fork = 0
-        let s:fork_files = ["~/.vimrc.fork", "~/.vimrc.before.fork", "~/.vimrc.bundles.fork"]
+        let s:fork_files = ['~/.vimrc.fork', '~/.vimrc.before.fork', '~/.vimrc.bundles.fork']
         for fork_file in s:fork_files
-            if filereadable(expand(fork_file, ":p"))
+            if filereadable(expand(fork_file, ':p'))
                 let s:is_fork = 1
                 break
             endif
@@ -707,31 +707,31 @@
     endfunction
 
     function! s:ExpandFilenameAndExecute(command, file)
-        execute a:command . " " . expand(a:file, ":p")
+        execute a:command . " " . expand(a:file, ':p')
     endfunction
 
     function! s:EditSpf13Config()
-        call <SID>ExpandFilenameAndExecute("tabedit", "~/.vimrc")
-        call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.before")
-        call <SID>ExpandFilenameAndExecute("vsplit", "~/.vimrc.bundles")
+        call <SID>ExpandFilenameAndExecute('tabedit', '~/.vimrc')
+        call <SID>ExpandFilenameAndExecute('vsplit', '~/.vimrc.before')
+        call <SID>ExpandFilenameAndExecute('vsplit', '~/.vimrc.bundles')
 
-        execute bufwinnr(".vimrc") . "wincmd w"
-        call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.local")
+        execute bufwinnr('.vimrc') . 'wincmd w'
+        call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.local')
         wincmd l
-        call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.before.local")
+        call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.before.local')
         wincmd l
-        call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.local")
+        call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.bundles.local')
 
         if <SID>IsSpf13Fork()
-            execute bufwinnr(".vimrc") . "wincmd w"
-            call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.fork")
+            execute bufwinnr('.vimrc') . 'wincmd w'
+            call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.fork')
             wincmd l
-            call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.before.fork")
+            call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.before.fork')
             wincmd l
-            call <SID>ExpandFilenameAndExecute("split", "~/.vimrc.bundles.fork")
+            call <SID>ExpandFilenameAndExecute('split', '~/.vimrc.bundles.fork')
         endif
 
-        execute bufwinnr(".vimrc.local") . "wincmd w"
+        execute bufwinnr('.vimrc.local') . 'wincmd w'
     endfunction
 
     execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
@@ -739,20 +739,20 @@
 " }
 
 " Use fork vimrc if available {
-    if filereadable(expand("~/.vimrc.fork"))
+    if filereadable(expand('~/.vimrc.fork'))
         source ~/.vimrc.fork
     endif
 " }
 
 " Use local vimrc if available {
-    if filereadable(expand("~/.vimrc.local"))
+    if filereadable(expand('~/.vimrc.local'))
         source ~/.vimrc.local
     endif
 " }
 
 " Use local gvimrc if available and gui is running {
     if has('gui_running')
-        if filereadable(expand("~/.gvimrc.local"))
+        if filereadable(expand('~/.gvimrc.local'))
             source ~/.gvimrc.local
         endif
     endif
