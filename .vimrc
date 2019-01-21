@@ -141,12 +141,12 @@
 
 " Formatting {
 
-    set autoindent                  
+    set autoindent
     set expandtab                   "
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-    set nowrap                      
+    set nowrap
     set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-    set shiftwidth=2                
+    set shiftwidth=2
     set smartindent
     set softtabstop=2               " Let backspace delete indent
     set splitbelow                  " Puts new split windows to the bottom of the current
@@ -502,7 +502,7 @@
     " }
 
     " PyMode {
-        " Disable if python support not present     
+        " Disable if python support not present
         if isdirectory(expand('~/.vim/bundle/repos/github.com/python-mode'))
             let g:pymode_lint_checkers = ['pyflakes']
             let g:pymode_trim_whitespaces = 0

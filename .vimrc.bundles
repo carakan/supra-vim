@@ -69,7 +69,7 @@ if dein#load_state(expand('~/.vim/bundle'))
     " }
 
     " Snippets & AutoComplete {
-        call dein#add('Shougo/deoplete.nvim')
+        call dein#add('neoclide/coc.nvim', {'build': 'npm install && npm run build'})
         call dein#add('SirVer/ultisnips')
         call dein#add('honza/vim-snippets')
     " }
