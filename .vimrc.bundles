@@ -56,7 +56,6 @@ if dein#load_state(expand('~/.vim/bundle'))
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
             call dein#add('tpope/vim-fugitive')
-            call dein#add('junegunn/gv.vim')
             call dein#add('keith/gist.vim')
             call dein#add('scrooloose/nerdcommenter')
             call dein#add('godlygeek/tabular')
