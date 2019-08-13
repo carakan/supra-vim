@@ -1,12 +1,6 @@
-" Environment {
-    " Arrow Key Fix {
-        " https://github.com/spf13/spf13-vim/issues/780
-        if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
-            inoremap <silent> <C-[>OC <RIGHT>
-        endif
-    " }
-" }
-
+if &compatible
+  set nocompatible
+endif
 " Use before config if available {
     if filereadable(expand('~/.vimrc.before'))
         source ~/.vimrc.before

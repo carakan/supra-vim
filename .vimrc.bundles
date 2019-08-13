@@ -1,11 +1,9 @@
 " Environment {
 set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim
 
-if dein#load_state(expand('~/.vim/bundle'))
-    call dein#begin(expand('~/.vim/bundle'))
+if dein#load_state('~/.vim/bundle')
+    call dein#begin('~/.vim/bundle')
     call dein#add('Shougo/dein.vim')
-
-    call dein#add('tomtom/tlib_vim')
 
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
