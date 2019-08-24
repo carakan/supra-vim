@@ -127,10 +127,7 @@ endif
     set showmatch                   " Show matching brackets/parenthesis
     set smartcase                   " Case sensitive when uc present
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-    set wildmenu                    " Show list instead of just completing
-    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
     set winminheight=0              " Windows can be 0 line high
-
 " }
 
 " Formatting {
