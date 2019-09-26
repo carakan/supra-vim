@@ -59,7 +59,6 @@ if dein#load_state('~/.vim/bundle')
             call dein#add('godlygeek/tabular')
             call dein#add('tpope/vim-endwise')
             call dein#add('christoomey/vim-tmux-navigator')
-            call dein#add('google/vim-searchindex')
             call dein#add('ludovicchabant/vim-gutentags')
             set statusline+=%{gutentags#statusline()}
         endif
