@@ -89,7 +89,7 @@ if dein#load_state('~/.vim/bundle')
 
     " Javascript {
         if count(g:spf13_bundle_groups, 'javascript')
-            call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
+            call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'javascript.jsx', 'html', 'vue']})
             call dein#add('elzr/vim-json', {'on_ft': ['json', 'javascript']})
             call dein#add('HerringtonDarkholme/yats.vim')
         endif
