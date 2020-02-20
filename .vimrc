@@ -380,13 +380,6 @@ endif
         endif
     " }
 
-    " PIV {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/PIV'))
-            let g:DisableAutoPHPFolding = 0
-            let g:PIVAutoClose = 0
-        endif
-    " }
-
     " Misc {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/scrooloose/nerdtree'))
             let g:NERDShutUp=1
@@ -443,14 +436,8 @@ endif
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
-    " SnipMate {
-        " Setting the author var
-        " If forking, please overwrite in your .vimrc.local file
-        let g:snips_author = 'Steve Francia <steve.francia@gmail.com>'
-    " }
-
     " NerdTree {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/scrooloose/nerdtree/'))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/preservim/nerdtree/'))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
             map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
@@ -490,16 +477,6 @@ endif
     " JSON {
         nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
-    " }
-
-    " PyMode {
-        " Disable if python support not present
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/python-mode'))
-            let g:pymode_lint_checkers = ['pyflakes']
-            let g:pymode_trim_whitespaces = 0
-            let g:pymode_options = 0
-            let g:pymode_rope = 0
-        endif
     " }
 
     " TagBar {
@@ -713,13 +690,5 @@ endif
 " Use local vimrc if available {
     if filereadable(expand('~/.vimrc.local'))
         source ~/.vimrc.local
-    endif
-" }
-
-" Use local gvimrc if available and gui is running {
-    if has('gui_running')
-        if filereadable(expand('~/.gvimrc.local'))
-            source ~/.gvimrc.local
-        endif
     endif
 " }
