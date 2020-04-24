@@ -442,13 +442,28 @@ endif
             map <leader>e :NERDTreeFind<CR>
             nmap <leader>nt :NERDTreeFind<CR>
 
-            let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeChDirMode=0
-            let NERDTreeQuitOnOpen=1
-            let NERDTreeMouseMode=2
-            let NERDTreeShowHidden=1
-            let NERDTreeKeepTreeInNewTab=1
+            let g:NERDTreeShowBookmarks=1
+            let g:NERDTreeIgnore = [
+                \ '\.vim$',
+                \ '\~$',
+                \ '\.beam',
+                \ 'deps',
+                \ '_build',
+                \ '.git',
+                \ '\.swo$',
+                \ '\.swp$',
+                \ '^ctags$',
+                \ 'node_modules',
+                \ 'tags',
+                \ '.elixir_ls',
+                \ '.bundle',
+                \ '^tmp/',
+                \ ]
+            let g:NERDTreeChDirMode=0
+            let g:NERDTreeQuitOnOpen=1
+            let g:NERDTreeMouseMode=2
+            let g:NERDTreeShowHidden=1
+            let g:NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
