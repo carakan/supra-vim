@@ -108,12 +108,14 @@ create_symlinks() {
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
     lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
     lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
+        if program_exists "nvim"; then
+        lnif "$source_path/.vimrc"     "$target_path/.vim/init.vim"
+        lnif "$source_path/.vim"       "$target_path/.config/nvim"
+        success "Config neovim"
+    fi
     lnif "$source_path/.vim"           "$target_path/.vim"
 
-    if program_exists "nvim"; then
-        lnif "$source_path/.vim"       "$target_path/.config/nvim"
-        lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
-    fi
+
 
     touch  "$target_path/.vimrc.local"
 
@@ -130,7 +132,7 @@ setup_vundle() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
-    vim \
+    nvim \
         -u "$1" \
         "+set nomore" \
         "+call dein#install()" \
@@ -138,7 +140,7 @@ setup_vundle() {
 
     export SHELL="$system_shell"
 
-    success "Now updating/installing plugins using Vundle"
+    success "Now updating/installing plugins."
     debug
 }
 
@@ -166,7 +168,7 @@ setup_fork_mode "$fork_maintainer" \
 sync_repo       "$HOME/.vim/bundle/repos/github.com/Shougo/dein.vim" \
                 "$VUNDLE_URI" \
                 "master" \
-                "vundle"
+                "Dein"
 
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
