@@ -354,9 +354,6 @@ endif
     " }
 
     " Misc {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/scrooloose/nerdtree'))
-            let g:NERDShutUp=1
-        endif
         if isdirectory(expand('~/.vim/bundle/repos/github.com/r901042004/matchit.zip'))
             let b:match_ignorecase = 1
         endif
@@ -410,13 +407,15 @@ endif
     " }
 
     " NerdTree {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/preservim/nerdtree/'))
-            map <C-e> <plug>NERDTreeTabsToggle<CR>
-            map <leader>e :NERDTreeFind<CR>
-            nmap <leader>nt :NERDTreeFind<CR>
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/ms-jpq/chadtree/'))
+            map <C-e> <cmd>CHADopen<cr>
 
-            let g:NERDTreeShowBookmarks=1
-            let g:NERDTreeIgnore = [
+            let g:chadtree_settings = {
+                \ 'theme.text_colour_set': 'solarized_dark',
+                \ 'options.show_hidden': v:true,
+            \}
+
+            let g:chadtree_ignores = [
                 \ '\.vim$',
                 \ '\~$',
                 \ '\.beam',
@@ -432,12 +431,6 @@ endif
                 \ '.bundle',
                 \ '^tmp/',
                 \ ]
-            let g:NERDTreeChDirMode=0
-            let g:NERDTreeQuitOnOpen=1
-            let g:NERDTreeMouseMode=2
-            let g:NERDTreeShowHidden=1
-            let g:NERDTreeKeepTreeInNewTab=1
-            let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     " }
 
@@ -537,20 +530,6 @@ endif
         endfor
     endfunction
     call InitializeDirectories()
-    " }
-
-    " Initialize NERDTree as needed {
-    function! NERDTreeInitAsNeeded()
-        redir => bufoutput
-        buffers!
-        redir END
-        let idx = stridx(bufoutput, 'NERD_tree')
-        if idx > -1
-            NERDTreeMirror
-            NERDTreeFind
-            wincmd l
-        endif
-    endfunction
     " }
 
     " Shell command {
