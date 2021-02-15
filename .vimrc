@@ -408,7 +408,7 @@ endif
 
     " NerdTree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/ms-jpq/chadtree/'))
-            map <C-e> <cmd>CHADopen<cr>
+            map <C-e> :CHADopen<cr>
 
             let g:chadtree_settings = {
                 \ 'theme.text_colour_set': 'solarized_dark',
@@ -431,6 +431,17 @@ endif
                 \ '.bundle',
                 \ '^tmp/',
                 \ ]
+            let g:chadtree_view = {
+            \   "window_options": [
+            \       "nonumber",
+            \       "norelativenumber",
+            \       "nowrap",
+            \       "signcolumn=no",
+            \       "cursorline",
+            \       "winfixwidth",
+            \       "nolist"
+            \   ]
+            \}
         endif
     " }
 
