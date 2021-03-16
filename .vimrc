@@ -376,15 +376,11 @@ endif
     " }
 
     " NerdTree {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/ms-jpq/chadtree/'))
-            map <C-e> :CHADopen<cr>
-
-            let g:chadtree_settings = {
-                \ 'theme.text_colour_set': 'solarized_dark',
-                \ 'options.show_hidden': v:true,
-            \}
-
-            let g:chadtree_ignores = [
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
+            map <C-e> :NvimTreeToggle<CR>
+            let g:nvim_tree_follow = 1 
+            let g:nvim_tree_indent_markers = 1
+            let g:nvim_tree_ignore = [
                 \ '\.vim$',
                 \ '\~$',
                 \ '\.beam',
@@ -400,17 +396,24 @@ endif
                 \ '.bundle',
                 \ '^tmp/',
                 \ ]
-            let g:chadtree_view = {
-            \   "window_options": [
-            \       "nonumber",
-            \       "norelativenumber",
-            \       "nowrap",
-            \       "signcolumn=no",
-            \       "cursorline",
-            \       "winfixwidth",
-            \       "nolist"
-            \   ]
-            \}
+            let g:nvim_tree_icons = {
+                \ 'default': '',
+                \ 'symlink': '',
+                \ 'git': {
+                \   'unstaged': "✗",
+                \   'staged': "✓",
+                \   'unmerged': "",
+                \   'renamed': "➜",
+                \   'untracked': "★"
+                \   },
+                \ 'folder': {
+                \   'default': "",
+                \   'open': "",
+                \   'empty': "",
+                \   'empty_open': "",
+                \   'symlink': "",
+                \   }
+                \ }
         endif
     " }
 
@@ -451,11 +454,34 @@ endif
         endif
     " }
 
-    " indent_guides {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/nathanaelkane/vim-indent-guides/'))
-            let g:indent_guides_start_level = 2
-            let g:indent_guides_guide_size = 1
-            let g:indent_guides_enable_on_vim_startup = 1
+    " OmniComplete {
+        " To disable omni complete, add the following to your .vimrc.before.local file:
+        "   let g:spf13_no_omni_complete = 1
+        if !exists('g:spf13_no_omni_complete')
+            if has('autocmd') && exists('+omnifunc')
+                autocmd Filetype *
+                    \if &omnifunc == "" |
+                    \setlocal omnifunc=syntaxcomplete#Complete |
+                    \endif
+            endif
+
+            hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+            hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+            hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+
+            " Some convenient mappings
+            "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+            if exists('g:spf13_map_cr_omni_complete')
+                inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+            endif
+            inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+            inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+            inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+            inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
+            " Automatically open and close the popup menu / preview window
+            au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+            set completeopt=menu,preview,longest,menuone
         endif
     " }
 
