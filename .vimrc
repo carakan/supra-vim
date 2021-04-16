@@ -373,9 +373,12 @@ endif
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+        let g:NERDDefaultAlign = 'left'
+        let g:NERDSpaceDelims = 1
+        let g:NERDCommentEmptyLines = 1
     " }
 
-    " NerdTree {
+    " Nvim Tree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
             map <C-e> :NvimTreeToggle<CR>
             let g:nvim_tree_follow = 1 
