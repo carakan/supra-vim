@@ -123,6 +123,8 @@ if dein#load_state('~/.vim/bundle')
             let g:rubycomplete_classes_in_global = 1
             let g:rubycomplete_rails = 1
             let g:ruby_operators = 1
+            let g:ruby_pseudo_operators = 1
+            let g:ruby_minlines = 100
         endif
     " }
     endif
