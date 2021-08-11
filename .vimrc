@@ -308,29 +308,6 @@ endif
 
 " Plugins {
 
-    " GoLang {
-        if count(g:spf13_bundle_groups, 'go')
-            let g:go_highlight_functions = 1
-            let g:go_highlight_methods = 1
-            let g:go_highlight_structs = 1
-            let g:go_highlight_operators = 1
-            let g:go_highlight_build_constraints = 1
-            let g:go_fmt_command = 'goimports'
-            let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-            let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-            au FileType go nmap <Leader>s <Plug>(go-implements)
-            au FileType go nmap <Leader>i <Plug>(go-info)
-            au FileType go nmap <Leader>e <Plug>(go-rename)
-            au FileType go nmap <leader>r <Plug>(go-run)
-            au FileType go nmap <leader>b <Plug>(go-build)
-            au FileType go nmap <leader>t <Plug>(go-test)
-            au FileType go nmap <Leader>gd <Plug>(go-doc)
-            au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-            au FileType go nmap <leader>co <Plug>(go-coverage)
-        endif
-        " }
-
-
     " TextObj Sentence {
         if count(g:spf13_bundle_groups, 'writing')
             augroup textobj_sentence
@@ -353,12 +330,6 @@ endif
         endif
     " }
 
-    " Misc {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/r901042004/matchit.zip'))
-            let b:match_ignorecase = 1
-        endif
-    " }
-
     " Ctags {
         set tags=./tags;/,~/.vimtags
 
@@ -369,35 +340,26 @@ endif
         endif
     " }
 
-    " AutoCloseTag {
-        " Make it so AutoCloseTag works for xml and xhtml files as well
-        au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
-        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
-        let g:NERDDefaultAlign = 'left'
-        let g:NERDSpaceDelims = 1
-        let g:NERDCommentEmptyLines = 1
-    " }
-
     " Nvim Tree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
             map <C-e> :NvimTreeToggle<CR>
             let g:nvim_tree_follow = 1 
             let g:nvim_tree_indent_markers = 1
             let g:nvim_tree_ignore = [
-                \ '\.vim$',
-                \ '\~$',
-                \ '\.beam',
-                \ 'deps',
-                \ '_build',
+                \ '.bundle',
+                \ '.elixir_ls',
                 \ '.git',
+                \ '\.beam',
                 \ '\.swo$',
                 \ '\.swp$',
+                \ '\.vim$',
+                \ '\~$',
                 \ '^ctags$',
+                \ '^tmp/',
+                \ '_build',
+                \ 'deps',
                 \ 'node_modules',
                 \ 'tags',
-                \ '.elixir_ls',
-                \ '.bundle',
-                \ '^tmp/',
                 \ ]
             let g:nvim_tree_icons = {
                 \ 'default': '',
@@ -448,14 +410,6 @@ endif
             nnoremap <silent> <leader>gg :SignifyToggle<CR>
         endif
     "}
-
-    " UndoTree {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/mbbill/undotree/'))
-            nnoremap <Leader>u :UndotreeToggle<CR>
-            " If undotree is opened, it is likely one wants to interact with it.
-            let g:undotree_SetFocusWhenToggle=1
-        endif
-    " }
 
     " OmniComplete {
         " To disable omni complete, add the following to your .vimrc.before.local file:
