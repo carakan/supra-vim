@@ -339,6 +339,12 @@ endif
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
     " }
+    
+    " NerdComment settings {
+        let g:NERDDefaultAlign = 'left'
+        let g:NERDSpaceDelims = 1
+        let g:NERDCommentEmptyLines = 1
+    " }
 
     " Nvim Tree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))

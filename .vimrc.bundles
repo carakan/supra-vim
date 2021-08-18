@@ -62,8 +62,8 @@ if dein#load_state('~/.vim/bundle')
 
     " Snippets & AutoComplete {
         call dein#add('neoclide/coc.nvim', { 'merged': 0 })
-        call dein#add('SirVer/ultisnips')
-        call dein#add('honza/vim-snippets')
+        call dein#add('SirVer/ultisnips', {'if': 0})
+        call dein#add('honza/vim-snippets', {'if': 1})
     " }
 
     " PHP {
@@ -124,7 +124,13 @@ if dein#load_state('~/.vim/bundle')
             let g:rubycomplete_rails = 1
             let g:ruby_operators = 1
             let g:ruby_pseudo_operators = 1
-            let g:ruby_minlines = 100
+            let g:ruby_space_errors = 1
+            let g:ruby_line_continuation_error = 1
+            let g:ruby_global_variable_error = 1
+            let g:ruby_fold = 1
+            let g:ruby_spellcheck_strings = 1
+            let g:ruby_indent_assignment_style = 'variable'
+
         endif
     " }
     endif
