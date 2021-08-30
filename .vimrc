@@ -339,7 +339,7 @@ endif
             let &tags = &tags . ',' . gitroot . '/.git/tags'
         endif
     " }
-    
+
     " NerdComment settings {
         let g:NERDDefaultAlign = 'left'
         let g:NERDSpaceDelims = 1
@@ -349,7 +349,7 @@ endif
     " Nvim Tree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
             map <C-e> :NvimTreeToggle<CR>
-            let g:nvim_tree_follow = 1 
+            let g:nvim_tree_follow = 1
             let g:nvim_tree_indent_markers = 1
             let g:nvim_tree_ignore = [
                 \ '.bundle',
@@ -375,14 +375,25 @@ endif
                 \   'staged': "✓",
                 \   'unmerged': "",
                 \   'renamed': "➜",
-                \   'untracked': "★"
+                \   'untracked': "★",
+                \   'deleted': "",
+                \   'ignored': "◌"
                 \   },
                 \ 'folder': {
+                \   'arrow_open': "",
+                \   'arrow_closed': "",
                 \   'default': "",
                 \   'open': "",
                 \   'empty': "",
                 \   'empty_open': "",
                 \   'symlink': "",
+                \   'symlink_open': "",
+                \   },
+                \   'lsp': {
+                \     'hint': "",
+                \     'info': "",
+                \     'warning': "",
+                \     'error': "",
                 \   }
                 \ }
         endif

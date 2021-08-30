@@ -61,7 +61,7 @@ if dein#load_state('~/.vim/bundle')
     " }
 
     " Snippets & AutoComplete {
-        call dein#add('neoclide/coc.nvim', { 'merged': 0 })
+        call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
         call dein#add('SirVer/ultisnips', {'if': 0})
         call dein#add('honza/vim-snippets', {'if': 1})
     " }
