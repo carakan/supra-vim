@@ -351,6 +351,13 @@ endif
             map <C-e> :NvimTreeToggle<CR>
             let g:nvim_tree_follow = 1
             let g:nvim_tree_indent_markers = 1
+            let g:nvim_tree_highlight_opened_files = 1
+            let g:nvim_tree_show_icons = {
+                \ 'git': 1,
+                \ 'folders': 1,
+                \ 'files': 1,
+                \ 'folder_arrows': 1,
+                \ }
             let g:nvim_tree_ignore = [
                 \ '.bundle',
                 \ '.elixir_ls',
