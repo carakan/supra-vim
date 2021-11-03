@@ -357,22 +357,7 @@ endif
                 \ 'files': 1,
                 \ 'folder_arrows': 1,
                 \ }
-            let g:nvim_tree_ignore = [
-                \ '.bundle',
-                \ '.elixir_ls',
-                \ '.git',
-                \ '\.beam',
-                \ '\.swo$',
-                \ '\.swp$',
-                \ '\.vim$',
-                \ '\~$',
-                \ '^ctags$',
-                \ '^tmp/',
-                \ '_build',
-                \ 'deps',
-                \ 'node_modules',
-                \ 'tags',
-                \ ]
+
             let g:nvim_tree_icons = {
                 \ 'default': '',
                 \ 'symlink': '',
