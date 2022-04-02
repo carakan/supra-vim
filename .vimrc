@@ -100,7 +100,7 @@ endif
     endif
 
     if has('statusline')
-        set laststatus=2
+        set laststatus=3
 
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
@@ -351,6 +351,7 @@ endif
             map <C-e> :NvimTreeToggle<CR>
             let g:nvim_tree_indent_markers = 1
             let g:nvim_tree_highlight_opened_files = 1
+            let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
             let g:nvim_tree_show_icons = {
                 \ 'git': 1,
                 \ 'folders': 1,
@@ -415,7 +416,6 @@ endif
             nnoremap <silent> <leader>ge :Gedit<CR>
             " Mnemonic _i_nteractive
             nnoremap <silent> <leader>gi :Git add -p %<CR>
-            nnoremap <silent> <leader>gg :SignifyToggle<CR>
         endif
     "}
 
