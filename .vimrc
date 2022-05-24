@@ -349,7 +349,6 @@ endif
     " Nvim Tree {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
             map <C-e> :NvimTreeToggle<CR>
-            let g:nvim_tree_indent_markers = 1
             let g:nvim_tree_highlight_opened_files = 1
             let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } 
             let g:nvim_tree_show_icons = {
@@ -360,8 +359,8 @@ endif
                 \ }
 
             let g:nvim_tree_icons = {
-                \ 'default': '',
-                \ 'symlink': '',
+                \ 'default': "",
+                \ 'symlink': "",
                 \ 'git': {
                 \   'unstaged': "✗",
                 \   'staged': "✓",
