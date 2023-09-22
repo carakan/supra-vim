@@ -24,7 +24,6 @@ if dein#load_state('~/.vim/bundle')
             call dein#add('jiangmiao/auto-pairs')
             call dein#add('andymass/vim-matchup')
             call dein#add('nvim-lualine/lualine.nvim')
-            call dein#add('glepnir/indent-guides.nvim')
             call dein#add('tpope/vim-abolish.git')
             call dein#add('osyo-manga/vim-over')
             call dein#add('kana/vim-textobj-user')
@@ -58,9 +57,9 @@ if dein#load_state('~/.vim/bundle')
     " }
 
     " Snippets & AutoComplete {
-        call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-        call dein#add('SirVer/ultisnips', {'if': 0})
-        call dein#add('honza/vim-snippets', {'if': 1})
+        call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'master', 'build': 'yarn install --frozen-lockfile' })
+        call dein#add('SirVer/ultisnips', { 'if': 0 })
+        call dein#add('honza/vim-snippets', { 'if': 1 })
     " }
 
     " PHP {
