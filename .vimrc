@@ -347,7 +347,7 @@ endif
     " }
 
     " Nvim Tree {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/kyazdani42/nvim-tree.lua'))
+        if isdirectory(expand('~/.vim/bundle/repos/github.com/nvim-tree/nvim-tree.lua'))
             map <C-e> :NvimTreeToggle<CR>
         endif
     " }
@@ -355,12 +355,6 @@ endif
     " TagBar {
         if isdirectory(expand('~/.vim/bundle/repos/github.com/majutsushi/tagbar/'))
             nnoremap <silent> <leader>tt :TagbarToggle<CR>
-        endif
-    "}
-
-    " Rainbow {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/rainbow/'))
-            let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
         endif
     "}
 
