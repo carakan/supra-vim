@@ -105,9 +105,6 @@ endif
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        if !exists('g:override_spf13_bundles')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
-        endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -136,7 +133,6 @@ endif
     set expandtab                   "
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
     set nowrap
-    set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
     set shiftwidth=2
     set smartindent
     set softtabstop=2               " Let backspace delete indent
@@ -358,21 +354,6 @@ endif
         endif
     "}
 
-    " Fugitive {
-        if isdirectory(expand('~/.vim/bundle/repos/github.com/tpope/vim-fugitive/'))
-            nnoremap <silent> <leader>gs :Gstatus<CR>
-            nnoremap <silent> <leader>gd :Gdiff<CR>
-            nnoremap <silent> <leader>gc :Gcommit<CR>
-            nnoremap <silent> <leader>gb :Gblame<CR>
-            nnoremap <silent> <leader>gl :Glog<CR>
-            nnoremap <silent> <leader>gp :Git push<CR>
-            nnoremap <silent> <leader>gr :Gread<CR>
-            nnoremap <silent> <leader>gw :Gwrite<CR>
-            nnoremap <silent> <leader>ge :Gedit<CR>
-            " Mnemonic _i_nteractive
-            nnoremap <silent> <leader>gi :Git add -p %<CR>
-        endif
-    "}
 
     " OmniComplete {
         " To disable omni complete, add the following to your .vimrc.before.local file:
